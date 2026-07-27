@@ -1,0 +1,23 @@
+[
+  {
+    "titulo": "Lago de Ilopango",
+    "descripcion": "El lago de Ilopango es un lago de cráter ubicado en el departamento de San Salvador.",
+    "categoria": "Lagos",
+    "precio": 10,
+    "ubicacion": "San Salvador, El Salvador"
+  },
+  {
+    "titulo": "Ruta de Las Flores",
+    "descripcion": "Recorrido turístico famoso por sus pueblos coloridos, gastronomía y clima agradable.",
+    "categoria": "Pueblos",
+    "precio": 15,
+    "ubicacion": "Sonsonate, El Salvador"
+  },
+  {
+    "titulo": "Volcán de Santa Ana",
+    "descripcion": "Uno de los destinos más visitados para senderismo y vistas panorámicas.",
+    "categoria": "Volcanes",
+    "precio": 12,
+    "ubicacion": "Santa Ana, El Salvador"
+  }
+]
