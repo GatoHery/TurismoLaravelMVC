@@ -19,24 +19,29 @@ class TurismoController extends Controller
         return view('turismo.create');
     }
 
-    public function store(Request $request)
-    {
-        $datos = $request->validate([
-            'titulo' => ['required', 'string', 'max:255'],
-            'descripcion' => ['required', 'string'],
-            'categoria' => ['required', 'string', 'max:100'],
-            'precio' => ['required', 'numeric', 'min:0'],
-            'ubicacion' => ['required', 'string', 'max:255'],
-        ]);
+public function store(Request $request)
+{
+    $datos = $request->validate([
+        'titulo' => ['required', 'string', 'max:255'],
+        'descripcion' => ['required', 'string'],
+        'categoria' => ['required', 'string', 'max:100'],
+        'precio' => ['required', 'numeric', 'min:0'],
+        'ubicacion' => ['required', 'string', 'max:255'],
+    ]);
 
-        $lugares = TurismoModelo::obtenerLugares();
-        $datos['id'] = TurismoModelo::siguienteId();
-        $lugares[] = $datos;
+    $lugares = TurismoModelo::obtenerLugares();
 
-        TurismoModelo::guardarLugares($lugares);
+    $datos = array_merge(
+        ['id' => TurismoModelo::siguienteId($lugares)],
+        $datos
+    );
 
-        return redirect()->route('turismo.index');
-    }
+    $lugares[] = $datos;
+
+    TurismoModelo::guardarLugares($lugares);
+
+    return redirect()->route('turismo.index');
+}
 
     public function show(string $id)
     {
